@@ -126,11 +126,14 @@ class ConfigTester:
         with tempfile.TemporaryDirectory() as tmpdirname:
             config.save_pretrained(tmpdirname)
             general_config_loaded = self.config_class.from_pretrained(tmpdirname)
+
+            print("TYPE IS", (self.config_class))
             general_config_dict = config.to_dict()
 
             # Iterate over all sub_configs if there are any and load them with their own classes
             sub_configs = general_config_loaded.sub_configs
             for sub_config_key, sub_class in sub_configs.items():
+                print("TRYING TO FIND IN", general_config_dict.keys(), sub_config_key)
                 if general_config_dict[sub_config_key] is not None:
                     if sub_class.__name__ == "AutoConfig":
                         sub_class = sub_class.for_model(**general_config_dict[sub_config_key]).__class__

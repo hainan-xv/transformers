@@ -2319,6 +2319,8 @@ class ModelTesterMixin:
 
                 self.check_device_map_is_respected(new_model, new_model.hf_device_map)
                 torch.manual_seed(0)
+
+                print("HERE DICT IS", inputs_dict_class)
                 new_output = new_model(**inputs_dict_class)
 
                 if isinstance(base_output[0], tuple) and isinstance(new_output[0], tuple):
