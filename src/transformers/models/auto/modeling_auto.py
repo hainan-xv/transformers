@@ -1616,7 +1616,6 @@ MODEL_FOR_CTC_MAPPING_NAMES = OrderedDict(
         ("hubert", "HubertForCTC"),
         ("mctct", "MCTCTForCTC"),
         ("parakeet_ctc", "ParakeetForCTC"),
-        ("parakeet_tdt", "ParakeetForTDT"),
         ("sew", "SEWForCTC"),
         ("sew-d", "SEWDForCTC"),
         ("unispeech", "UniSpeechForCTC"),
@@ -1631,6 +1630,7 @@ MODEL_FOR_CTC_MAPPING_NAMES = OrderedDict(
 MODEL_FOR_TDT_MAPPING_NAMES = OrderedDict(
     [
         # Model for Token-and-Duration Transducer (TDT) mapping.
+        ("parakeet_tdt", "ParakeetForTDT"),
     ]
 )
 
